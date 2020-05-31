@@ -1,0 +1,60 @@
+
+
+    <div class="container text-center">
+        <h1>priorite des tickets selon leur version</h1>
+    </div>
+    <div>
+    <div fxFlex="75" fxLayout="column" fxLayoutAlign="start stretch" fxFlex="75" >
+            <mat-form-field class="example-full-width">
+            <div class="search-product">
+                <input matInput color="black"
+               type="text"
+               name="search" [(ngModel)]="search" autocomplete="off"
+               placeholder="recherche"
+               >
+            </div>
+    
+               </mat-form-field>
+                
+            
+             
+            <table>
+    <thead>
+        <tr>
+            <th> date création</th>
+            <th> produit</th>
+            <th> version </th>
+            <th> priorite </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let TicketsPriority of ticketsWithPriority  |paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
+            <td>{{TicketsPriority.date_creation}}</td>
+            <td>{{TicketsPriority.nom_produit}}</td>
+            <td>{{TicketsPriority.nom_ticket}}</td>
+            <td>{{TicketsPriority.priorite}}</td> 
+        </tr>
+    </tbody>
+        
+    
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>   
+           
+    
+            
+    <div fxLayout="column" fxLayoutAlign="space-around end"  fxFlex="75" >
+            <app-pie-chart  switch_Pie_chart2="switch_Pie_chart2">
+    
+            </app-pie-chart>
+        </div>
+    </div>
+
+    <div>
+        <app-config-tickets-with-priority>
+        </app-config-tickets-with-priority>
+
+    </div>
+        
+    
+    

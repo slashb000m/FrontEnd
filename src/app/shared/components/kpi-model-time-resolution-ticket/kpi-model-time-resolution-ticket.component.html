@@ -1,0 +1,54 @@
+<div class="container text-center">
+    <h1> Proportion Tickets Closed VS ticket Returned par la QA</h1>
+</div>
+<div>
+    <div fxFlex="75" fxLayout="column" fxLayoutAlign="start stretch" fxFlex="75" >
+            <mat-form-field class="example-full-width">
+            <div class="search-product">
+                <input matInput color="black"
+               type="text"
+               name="search" [(ngModel)]="search" autocomplete="off"
+               placeholder="recherche"
+               >
+            </div>
+    
+               </mat-form-field>
+                
+            
+             
+            <table>
+    <thead>
+        <tr>
+            <th> nom et prénom</th>
+            <th> temps de resolution</th>
+            <th> date creation </th>
+            <th> complexite </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Ticket of Tickets|paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
+            <td>{{Ticket.first_name}}</td>
+            <td>{{Ticket.temps_de_resolution}}</td>
+            <td>{{Ticket.date_creation}}</td>
+            <td>{{Ticket.complexite}}</td>
+        </tr>
+    </tbody>
+        
+    
+            </table>
+       
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <div  fxLayout="column" fxLayoutAlign="space-around end"  fxFlex="75">
+            <app-bar-chart switch_Bar_chart="switch_Bar_chart"></app-bar-chart>
+    
+        </div>
+    </div>
+
+    <div>
+          <app-config-time-resolution-tickets>
+        </app-config-time-resolution-tickets>
+    </div>
+
+    
+    

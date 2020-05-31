@@ -1,0 +1,45 @@
+<div fxLayout="column" fxLayoutAlign="end start" >
+<div class="container text-center">
+    <h1>{{title}}</h1>
+</div>
+
+
+        <mat-form-field class="example-full-width">
+        <div class="search-product">
+            <input matInput color="black"
+           type="text"
+           name="search" [(ngModel)]="search" autocomplete="off"
+           placeholder="recherche"
+           >
+        </div>
+
+           </mat-form-field>
+            
+        
+         
+        <table>
+<thead>
+    <tr>
+        <th>{{ col_1 }}</th>
+        <th><img width="15px" src ="assets\img\blocker.svg" >&nbsp;{{ col_2 }}</th>
+        <th><img width="15px" src ="assets\img\critical.svg" >&nbsp;{{ col_3 }}</th>
+        <th><img width="15px" src ="assets\img\major.svg" >&nbsp;{{ col_4 }}</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let data of datas |paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
+        <td>{{data.col_1}}</td>
+        <td>{{data.col_2}}</td>
+        <td>{{data.col_3}}</td>
+        <td>{{data.col_4}}</td>
+    </tr>
+</tbody>
+    
+
+        </table>
+   
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+    </div>
+

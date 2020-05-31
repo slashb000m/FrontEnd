@@ -1,0 +1,61 @@
+
+    <div class="container text-center">
+        <h1> Proportion Tickets Closed VS ticket Returned par la QA</h1>
+    </div>
+    <div>
+        <div fxFlex="75" fxLayout="column" fxLayoutAlign="start stretch" fxFlex="75" >
+    
+            <mat-form-field class="example-full-width">
+            <div class="search-product">
+                <input matInput color="black"
+               type="text"
+               name="search" [(ngModel)]="search" autocomplete="off"
+               placeholder="recherche"
+               >
+            </div>
+    
+               </mat-form-field>
+                
+            
+             
+            <table>
+    <thead>
+        <tr>
+            <th> nom et prénom</th>
+            <th> date création</th>
+            <th> version </th>
+            <th> etat </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let TicketsProportion of TicketsProportions |paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
+            <td>{{TicketsProportion.first_name }}</td>
+            <td>{{TicketsProportion.date_creation}}</td>
+            <td>{{TicketsProportion.nom_version}}</td>
+            <td>{{TicketsProportion.id_statut}}</td>
+        </tr>
+    </tbody>
+        
+    
+            </table>
+          
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+         <div  fxLayout="column" fxLayoutAlign="space-around end"  fxFlex="75">
+            <app-pie-chart  switch_Pie_chart="switch_Pie_chart">
+    
+            </app-pie-chart>
+         </div>
+
+        </div>
+
+        <div>
+            <app-config-closed-returned-tickets>
+                
+            </app-config-closed-returned-tickets>
+        </div>
+            
+    
+
+        

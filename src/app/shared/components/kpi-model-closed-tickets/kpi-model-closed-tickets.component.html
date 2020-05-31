@@ -1,0 +1,51 @@
+<div fxLayout="column" fxLayoutAlign="end start" >
+    <div class="container text-center">
+        <h1>Tickets closed par collaborateurs</h1>
+    </div>
+    
+    
+            <mat-form-field class="example-full-width">
+            <div class="search-product">
+                <input matInput color="black"
+               type="text"
+               name="search" [(ngModel)]="search" autocomplete="off"
+               placeholder="recherche"
+               >
+            </div>
+    
+               </mat-form-field>
+                
+            
+             
+            <table>
+    <thead>
+        <tr>
+            <th> nom et prénom</th>
+            <th> date création</th>
+            <th> version </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let closedTicket of closedTickets|paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
+            <td>{{closedTicket.first_name}}</td>
+            <td>{{closedTicket.date_creation}}</td>
+            <td>{{closedTicket.nom_version}}</td>
+        </tr>
+    </tbody>
+        
+    
+            </table>
+       
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
+    
+        </div>
+        <mat-divider>
+  
+        </mat-divider>
+
+
+            <app-config-closed-tickets></app-config-closed-tickets>
+
+    
+    

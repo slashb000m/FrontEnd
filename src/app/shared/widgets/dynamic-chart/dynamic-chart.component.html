@@ -1,0 +1,36 @@
+<div>
+<mat-form-field>
+  <mat-label>Affichage</mat-label>
+  <mat-select>
+
+        <mat-option (click)="switchPieChart()" value="option1">tickets pas collaborateurs</mat-option>
+        <mat-option (click)="switchBarChart()" value="option2">Temps de resolution</mat-option>
+    <mat-option (click)="switchBarChart2()" value="option3">Priorite des tickets</mat-option>
+    <mat-option (click)="switchPieChart2()" value="option4">en cours</mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+</div>
+<div fxLayout="row" fxLayoutAlign="start stretch" >
+
+
+<!-- changement de metrique dynamiquement -->
+
+<div *ngIf=switch_Pie_chart>
+<app-pie-chart  [switch_Pie_chart]="switch_Pie_chart"></app-pie-chart>
+</div>
+
+<div *ngIf=switch_Bar_chart fxLayout="column" fxLayoutAlign="start stretch" >
+<app-bar-chart [switch_Bar_chart]="switch_Bar_chart"></app-bar-chart>
+</div>
+
+  <div *ngIf=switch_Pie_chart2>
+    <app-pie-chart [switch_Pie_chart2]="switch_Pie_chart2"></app-pie-chart>
+  </div>
+
+  <div *ngIf=switch_Bar_chart2 fxLayout="column" fxLayoutAlign="start stretch" >
+    <app-bar-chart [switch_Bar_chart2]="switch_Bar_chart2"></app-bar-chart>
+  </div>
+
+</div>

@@ -1,0 +1,25 @@
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div class="panel">
+
+    <div>
+      <h2 align="center">Vos Kpi's</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+     
+        <tbody>
+          <tr *ngFor="let kpi of kpis">
+            <td>{{kpi.name}}</td>
+            
+            <td>
+              <button  class="btn btn-danger">supprimer</button>
+              <a href="{{kpi.linkConfig}}"><button  class="btn btn-info" style="margin-left: 10px">Configurer</button></a>
+                <a href="{{kpi.linkKpi}}"><button  class="btn btn-info" style="margin-left: 10px">Consulter</button></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
