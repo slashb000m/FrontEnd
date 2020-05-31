@@ -19,7 +19,9 @@
             <table>
     <thead>
         <tr>
-            <th> nom et prénom</th>
+            <th> collaborateur</th>
+            <th> nom ticket</th>
+            <th> log</th>
             <th> temps de resolution</th>
             <th> date creation </th>
             <th> complexite </th>
@@ -28,9 +30,12 @@
     <tbody>
         <tr *ngFor="let Ticket of Tickets|paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
             <td>{{Ticket.first_name}}</td>
+            <td>{{Ticket.nom_ticket}}</td>
+            <td>{{Ticket.nom_log}}</td>
             <td>{{Ticket.temps_de_resolution}}</td>
             <td>{{Ticket.date_creation}}</td>
             <td>{{Ticket.complexite}}</td>
+            
         </tr>
     </tbody>
         

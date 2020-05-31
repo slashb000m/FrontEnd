@@ -6,4 +6,6 @@ export interface TicketsResolutionTime
     date_maj: string;
     complexite: number;
     temps_de_resolution: number;
+    nom_ticket: string;
+    nom_log:string;
 }

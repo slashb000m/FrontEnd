@@ -21,7 +21,7 @@
             <table>
     <thead>
         <tr>
-            <th> nom et prénom</th>
+            <th> collaborateur assigné</th>
             <th> date création</th>
             <th> version </th>
             <th> etat </th>
@@ -33,7 +33,13 @@
             <td>{{TicketsProportion.first_name }}</td>
             <td>{{TicketsProportion.date_creation}}</td>
             <td>{{TicketsProportion.nom_version}}</td>
-            <td>{{TicketsProportion.id_statut}}</td>
+            <div *ngIf="TicketsProportion.id_statut==1">
+                <td>validé</td>
+            </div>
+            <div *ngIf="TicketsProportion.id_statut==2">
+                <td>retourné par QA</td>
+            </div>
+            
         </tr>
     </tbody>
         

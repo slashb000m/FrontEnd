@@ -5,4 +5,6 @@ export class ClosedTicket{
     id_statut: number;
     first_name: string;
     nom_produit: string;
+    nom_ticket: string;
+    nom_client: string;
 }
