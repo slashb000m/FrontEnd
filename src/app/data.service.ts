@@ -17,6 +17,8 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   // get methods for tabs 
+
+
   getClosedTicket()
   {
     return this._http.get<ClosedTicket[]>("http://localhost:8181/kpi/productivite/closed-tickets");
@@ -34,25 +36,35 @@ export class DataService {
     return this._http.get<TicketsPriority[]>("http://localhost:8181/kpi/produit/priorite_tickets_par_version");
   }
 
-  //config of kpi's 
- /*postConfigKPI1()
+
+  
+ // config of kpi's 
+
+
+
+ /*postConfigClosedTickets()
   {
      return this._http.post<KpiConfig>("");
   }
-  postConfigKPI2()
+  postConfigReturnedValidatedTickets()
   {
      return this._http.post<KpiConfig>("");
   }
-  postConfigKPI3()
+  postConfigTicketsResolutionTime()
   {
      return this._http.post<KpiConfig>("");
   }
-  postConfigKPI4()
+  postConfigTicketsWithPriority()
   {
      return this._http.post<KpiConfig>("");
   }
 
 */
+
+
+// Services for charts
+
+
 
   get_Group_By_Priorite()
   {

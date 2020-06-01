@@ -1,9 +1,10 @@
 export class KpiConfig{
  
     config_id:number;
-    config_int:number;
-    config_string1:string;
-    config_string2:string;
+    nom_collab:number;
+    nom_version:string;
+    nom_statut:string;
+    nom_epic:string; 
     date_deb:number;
     date_fin:number;
 
