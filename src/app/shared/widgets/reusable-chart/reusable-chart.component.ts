@@ -44,10 +44,10 @@ if(this.switch_Pie_chart2){
           type: 'pie'
       },
       title: {
-          text: 'nombre de tickets résolus par an '
+          text: 'Proportion des tickets selon leur Priorité  '
       },
       tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          pointFormat: '{series.name}: <b>{point.percentage:f}%</b>'
 
 
       },
@@ -70,7 +70,7 @@ if(this.switch_Pie_chart2){
           }
       },
         series: [{
-          name: 'Brands',
+          name: 'Pourcentage',
           colorByPoint: true,
           data: this.priorite
         }]
@@ -86,7 +86,7 @@ if(this.switch_Pie_chart2){
          type: 'pie'
        },
        title: {
-         text: 'nombre de tickets résolus par an '
+         text: 'Proportion des tickets validé par rapport a ceux retourné  '
        },
        tooltip: {
          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -112,7 +112,7 @@ if(this.switch_Pie_chart2){
          }
        },
        series: [{
-         name: 'Brands',
+         name: 'Pourcentage',
          colorByPoint: true,
 
 

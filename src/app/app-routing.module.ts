@@ -62,7 +62,7 @@ children: [
 
 }, 
 {
-  path: 'posts',
+  path: 'Kpis',
   component: PostsComponent
 }, 
 {
