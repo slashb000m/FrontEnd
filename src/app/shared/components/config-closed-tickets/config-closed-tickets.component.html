@@ -4,11 +4,11 @@
       <div fxLayout="row" fxLayoutAlign="start start">
       <h2>Statut du ticket</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-      <form class="example-form">
+      <form class="statut_form">
           <mat-form-field class="example-full-width">
             <mat-label>collaborateur</mat-label>
-            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <input  class="form-control" [(ngModel)]="statut.nom_statut" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete (optionSelected)="envoyerStatut();" #auto="matAutocomplete" [displayWith]="displayFn">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                 {{option.name}}
               </mat-option>
@@ -19,15 +19,16 @@
       
 
       <h2>sprint</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <form class="example-form2">
+      <form class="sprint_form">
         <mat-form-field class="example-full-width">
           <input type="text"
-                 placeholder="Choisir statut"
-                 
+          [(ngModel)]="sprint.numero_sprint"
+                 placeholder="Choisir Sprint"
+            
                  matInput
                  [formControl]="myControlEtatTicket"
                  [matAutocomplete]="auto2">
-          <mat-autocomplete #auto2="matAutocomplete">
+          <mat-autocomplete      (optionSelected)="envoyerSprint()" #auto2="matAutocomplete">
             <mat-option *ngFor="let option2 of optionsEtatTicket" [value]="option2">
               {{option2}}
             </mat-option>
@@ -36,7 +37,7 @@
       </form>
 
     <h2>epic</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <form class="example-form2">
+      <form class="epic_form">
         <mat-form-field class="example-full-width">
           <input type="text"
                  placeholder="Choisir epic"

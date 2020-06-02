@@ -6,12 +6,16 @@ import { TicketsResolutionTime } from './classes/TicketsResolutionTime';
 import { TicketsPriorityByVersion } from './classes/TicketsPriorityByVersion';
 import { TicketsPriority } from './classes/TicketsPriority';
 import { KpiConfig } from './classes/KpiConfig';
+import { ConfigStatut } from './classes/ConfigStatut';
+import { ConfigSprint } from './classes/ConfigSprint';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  
+  
 
   // tslint:disable-next-line:variable-name
   constructor(private _http: HttpClient) { }
@@ -37,32 +41,25 @@ export class DataService {
   }
 
 
+
+
+  // config of kpi's 
+
+
+
+
+public KpiConfigStatut(ConfigStatut)
+{
+  return this._http.post("http://localhost:8181/configNom/Kpi/ClosedTickets",ConfigStatut,{responseType:'text' as 'json'});
+}
+
+public KpiConfigSprint(ConfigSprint)
+{
+  return this._http.post("http://localhost:8181/configSprint/Kpi/ClosedTickets",ConfigSprint,{responseType:'text' as 'json'});
+}
   
- // config of kpi's 
+ 
 
-
-
- /*postConfigClosedTickets()
-  {
-     return this._http.post<KpiConfig>("");
-  }
-  postConfigReturnedValidatedTickets()
-  {
-     return this._http.post<KpiConfig>("");
-  }
-  postConfigTicketsResolutionTime()
-  {
-     return this._http.post<KpiConfig>("");
-  }
-  postConfigTicketsWithPriority()
-  {
-     return this._http.post<KpiConfig>("");
-  }
-
-*/
-
-
-// Services for charts
 
 
 
