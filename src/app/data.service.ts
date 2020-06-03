@@ -12,6 +12,7 @@ import { ConfigEpic } from './classes/ConfigEpic';
 import { ConfigDateDeb } from './classes/ConfigDateDeb';
 import { ConfigDateFin } from './classes/ConfigDateFin';
 import { ConfigVersion } from './classes/ConfigVersion';
+import { ConfigNom } from './classes/ConfigNom';
 
 @Injectable({
   providedIn: 'root'
@@ -51,11 +52,19 @@ export class DataService {
 
 
 
+public KpiConfigNomCollab(ConfigNom)
+  {
+    return this._http.post("http://localhost:8181/configNom/Kpi",ConfigNom,{responseType:'text' as 'json'});
+  }
+  
 
 public KpiConfigStatutTickets(ConfigStatut)
 {
-  return this._http.post("http://localhost:8181/configNom/Kpi",ConfigStatut,{responseType:'text' as 'json'});
+  return this._http.post("http://localhost:8181/configStatut/Kpi",ConfigStatut,{responseType:'text' as 'json'});
 }
+
+
+
 
 public KpiConfigVersion(ConfigVersion)
 {

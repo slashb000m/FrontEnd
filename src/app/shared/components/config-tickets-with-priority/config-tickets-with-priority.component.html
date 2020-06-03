@@ -1,15 +1,15 @@
+
 <mat-divider>
   
 </mat-divider>
 <h2 align="center">Configuration du Dashboard</h2>
 <div  fxLayout="row" fxLayoutAlign="start start">
-
-      <h2>nom du produit</h2>&nbsp;&nbsp;&nbsp;
-        <form class="example-form">
+      <h2>nom du collaborateur</h2>&nbsp;&nbsp;&nbsp;
+        <form class="example-form" >
           <mat-form-field class="example-full-width">
-            <mat-label>Assignee</mat-label>
-            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-label>Choisir</mat-label>
+            <input type="text" [(ngModel)]="nom.nom_collab" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete (optionSelected)="envoyerNom();"  #auto="matAutocomplete" [displayWith]="displayFn">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                 {{option.name}}
               </mat-option>
@@ -17,17 +17,39 @@
           </mat-form-field>
         </form>
 
-    <h2>nom de la version</h2>&nbsp;&nbsp;&nbsp;
+      <br>
+      <br>
+      <br>
+
+
+    <h2>Nom de l'epic</h2>&nbsp;&nbsp;&nbsp;
       <form class="example-form2">
         <mat-form-field class="example-full-width">
           <input type="text"
                  placeholder="Choisir statut"
-                 
+                 [(ngModel)]="epic.nom_epic"
                  matInput
-                 [formControl]="myControlEtatTicket"
+                 [formControl]="myControlEpic"
                  [matAutocomplete]="auto2">
-          <mat-autocomplete #auto2="matAutocomplete">
-            <mat-option *ngFor="let option2 of optionsEtatTicket" [value]="option2">
+          <mat-autocomplete (optionSelected)="envoyerEpic();" #auto2="matAutocomplete">
+            <mat-option *ngFor="let option2 of optionsEpic" [value]="option2">
+              {{option2}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+      <h2>Sprint n°:</h2>&nbsp;&nbsp;&nbsp;
+      <form class="example-form2">
+        <mat-form-field class="example-full-width">
+          <input type="text"
+                 placeholder="Choisir statut"
+                 [(ngModel)]="sprint.numero_sprint"
+                 matInput
+                 [formControl]="myControlSprint"
+                 [matAutocomplete]="auto3">
+          <mat-autocomplete  (optionSelected)="envoyerSprint();" #auto3="matAutocomplete">
+            <mat-option *ngFor="let option2 of optionsSprint" [value]="option2">
               {{option2}}
             </mat-option>
           </mat-autocomplete>
@@ -35,62 +57,57 @@
       </form>
 
       
-    <h2>Nom de l'epic</h2>&nbsp;&nbsp;&nbsp;
-    <form class="example-form2">
-      <mat-form-field class="example-full-width">
-        <input type="text"
-               placeholder="Choisir statut"
-               
-               matInput
-               [formControl]="myControlEtatTicket"
-               [matAutocomplete]="auto2">
-        <mat-autocomplete #auto2="matAutocomplete">
-          <mat-option *ngFor="let option2 of optionsEtatTicket" [value]="option2">
-            {{option2}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
+      <h2>Version :</h2>&nbsp;&nbsp;&nbsp;
+      <form class="example-form2">
+        <mat-form-field class="example-full-width">
+          <input type="text"
+                 placeholder="Choisir statut"
+                 [(ngModel)]="version.nom_version"
+                 matInput
+                 [formControl]="myControlVersion"
+                 [matAutocomplete]="auto4">
+          <mat-autocomplete  (optionSelected)="envoyerVersion();" #auto4="matAutocomplete">
+            <mat-option *ngFor="let option2 of optionsVersion" [value]="option2">
+              {{option2}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
 
-    <h2>Sprint n°:</h2>&nbsp;&nbsp;&nbsp;
-    <form class="example-form2">
-      <mat-form-field class="example-full-width">
-        <input type="text"
-               placeholder="Choisir statut"
-               
-               matInput
-               [formControl]="myControlEtatTicket"
-               [matAutocomplete]="auto2">
-        <mat-autocomplete #auto2="matAutocomplete">
-          <mat-option *ngFor="let option2 of optionsEtatTicket" [value]="option2">
-            {{option2}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
 
-    
+
     </div>
         
       <h2>Intervalle de date :</h2>
 
       <div fxLayout="row" fxLayoutAlign="start start" >
         <h3>Du : </h3>
+        
+<form class="Date_form">
       <mat-form-field> 
-        <input matInput [matDatepicker]="myDatePickerDeb">
+        <input 
+        name="something"
+        [(ngModel)]="datedeb.date_deb" (dateChange)=envoyerDateDeb();
+        class="form-control"
+         matInput [matDatepicker]="myDatePickerDeb">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerDeb"></mat-datepicker-toggle>
-        <mat-datepicker #myDatePickerDeb> </mat-datepicker>
+        <mat-datepicker  #myDatePickerDeb> </mat-datepicker>
       </mat-form-field>
+    </form>
       <h3>Au :  </h3>
+      <form class="Date_form">
       <mat-form-field> 
-        <input matInput [matDatepicker]="myDatePickerFin">
+      
+        <input
+        name="something2"
+         class="Date_form" [(ngModel)]="datefin.date_fin" (dateChange)=envoyerDateFin(); matInput [matDatepicker]="myDatePickerFin">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerFin"></mat-datepicker-toggle>
-        <mat-datepicker #myDatePickerFin> </mat-datepicker>
+        <mat-datepicker  #myDatePickerFin> </mat-datepicker>
       </mat-form-field>
+    </form>
     </div>
 
     
-
 
 
 
