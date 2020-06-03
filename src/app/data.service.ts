@@ -8,6 +8,10 @@ import { TicketsPriority } from './classes/TicketsPriority';
 import { KpiConfig } from './classes/KpiConfig';
 import { ConfigStatut } from './classes/ConfigStatut';
 import { ConfigSprint } from './classes/ConfigSprint';
+import { ConfigEpic } from './classes/ConfigEpic';
+import { ConfigDateDeb } from './classes/ConfigDateDeb';
+import { ConfigDateFin } from './classes/ConfigDateFin';
+import { ConfigVersion } from './classes/ConfigVersion';
 
 @Injectable({
   providedIn: 'root'
@@ -48,14 +52,32 @@ export class DataService {
 
 
 
-public KpiConfigStatut(ConfigStatut)
+public KpiConfigStatutTickets(ConfigStatut)
 {
-  return this._http.post("http://localhost:8181/configNom/Kpi/ClosedTickets",ConfigStatut,{responseType:'text' as 'json'});
+  return this._http.post("http://localhost:8181/configNom/Kpi",ConfigStatut,{responseType:'text' as 'json'});
 }
 
-public KpiConfigSprint(ConfigSprint)
+public KpiConfigVersion(ConfigVersion)
 {
-  return this._http.post("http://localhost:8181/configSprint/Kpi/ClosedTickets",ConfigSprint,{responseType:'text' as 'json'});
+  return this._http.post("http://localhost:8181/cconfigVersionKpi",ConfigVersion,{responseType:'text' as 'json'});
+}
+
+public KpiConfigSprintTickets(ConfigSprint)
+{
+  return this._http.post("http://localhost:8181/configSprint/Kpi",ConfigSprint,{responseType:'text' as 'json'});
+}
+public KpiConfigEpicTickets(ConfigEpic)
+{
+  return this._http.post("http://localhost:8181/configEpic/Kpi",ConfigEpic,{responseType:'text' as 'json'});
+}
+
+public KpiConfigDateDebTickets(ConfigDateDeb)
+{
+  return this._http.post("http://localhost:8181/configDateDeb/Kpi",ConfigDateDeb,{responseType:'text' as 'json'});
+}
+public KpiConfigDateFintickets(ConfigDateFin)
+{
+  return this._http.post("http://localhost:8181/configDateFin/Kpi",ConfigDateFin,{responseType:'text' as 'json'});
 }
   
  

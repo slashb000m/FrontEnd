@@ -26,10 +26,10 @@
                  placeholder="Choisir Sprint"
             
                  matInput
-                 [formControl]="myControlEtatTicket"
+                 [formControl]="myControlSprintTicket"
                  [matAutocomplete]="auto2">
           <mat-autocomplete      (optionSelected)="envoyerSprint()" #auto2="matAutocomplete">
-            <mat-option *ngFor="let option2 of optionsEtatTicket" [value]="option2">
+            <mat-option *ngFor="let option2 of optionsSprintTicket" [value]="option2">
               {{option2}}
             </mat-option>
           </mat-autocomplete>
@@ -39,14 +39,16 @@
     <h2>epic</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <form class="epic_form">
         <mat-form-field class="example-full-width">
-          <input type="text"
+          <input
+           type="text"
+          [(ngModel)]="epic.nom_epic"
                  placeholder="Choisir epic"
                  
                  matInput
-                 [formControl]="myControlEtatTicket"
-                 [matAutocomplete]="auto2">
-          <mat-autocomplete #auto2="matAutocomplete">
-            <mat-option *ngFor="let option2 of optionsEtatTicket" [value]="option2">
+                 [formControl]="myControlEpicTicket"
+                 [matAutocomplete]="auto3">
+          <mat-autocomplete (optionSelected)="envoyerEpic()" #auto3="matAutocomplete">
+            <mat-option *ngFor="let option2 of optionsEpicTicket" [value]="option2">
               {{option2}}
             </mat-option>
           </mat-autocomplete>
@@ -55,22 +57,37 @@
 
     </div>
 
+
+
       <h2>Intervalle de date :</h2>
 
       <div fxLayout="row" fxLayoutAlign="start start" >
         <h3>Du : </h3>
+        
+<form class="Date_form">
       <mat-form-field> 
-        <input matInput [matDatepicker]="myDatePickerDeb">
+        <input 
+        name="something"
+        [(ngModel)]="datedeb.date_deb" (dateChange)=envoyerDateDeb();
+        class="form-control"
+         matInput [matDatepicker]="myDatePickerDeb">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerDeb"></mat-datepicker-toggle>
-        <mat-datepicker #myDatePickerDeb> </mat-datepicker>
+        <mat-datepicker  #myDatePickerDeb> </mat-datepicker>
       </mat-form-field>
+    </form>
       <h3>Au :  </h3>
+      <form class="Date_form">
       <mat-form-field> 
-        <input matInput [matDatepicker]="myDatePickerFin">
+      
+        <input
+        name="something2"
+         class="Date_form" [(ngModel)]="datefin.date_fin" (dateChange)=envoyerDateFin(); matInput [matDatepicker]="myDatePickerFin">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerFin"></mat-datepicker-toggle>
-        <mat-datepicker #myDatePickerFin> </mat-datepicker>
+        <mat-datepicker  #myDatePickerFin> </mat-datepicker>
       </mat-form-field>
+    </form>
     </div>
+
 
     
 <div align="center">

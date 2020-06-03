@@ -1,6 +1,14 @@
 export class ConfigDateFin{
  
-    config_id:number;
-    date_fin:Date;
+  
 
+        constructor(
+            config_id:number,
+            date_fin:Date
+         ){}
+     
+        config_id:number;
+        date_fin:Date;
+        
+    
 }
