@@ -8,6 +8,7 @@ import { DataService } from 'src/app/data.service';
 import { ConfigEpic } from 'src/app/classes/ConfigEpic';
 import { ConfigDateDeb } from 'src/app/classes/ConfigDateDeb';
 import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
+import { ConfigVersion } from 'src/app/classes/ConfigVersion';
 
 export interface User {
   name: string;
@@ -26,17 +27,12 @@ export interface User {
 export class ConfigClosedTicketsComponent implements OnInit {
   
 
-  filteredOptions: Observable<User[]>;
+
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.options.slice())
-      );
+  
       
   }
 
@@ -56,7 +52,14 @@ export class ConfigClosedTicketsComponent implements OnInit {
   optionsSprintTicket: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
   
   myControlEpicTicket = new FormControl();
-  optionsEpicTicket: string[] = ["test","test2 ","test 3 "];
+  optionsEpicTicket: string[] =  ['peu importe','IBOR', 'Archive data from WS', 'Cloud: stabilization'];
+
+  myControlNom = new FormControl();
+  optionsNom: string[] = ["peu importe","Fermé","Retourné","Attente d'information ","En cours"];
+ 
+  
+  myControlVersion = new FormControl();
+  optionsVersion: string[] = ['peu importe','6.2-00', '6.1-00', '6.2-00a','6.1-00a'];
  
 
   myControl = new FormControl();
@@ -86,6 +89,7 @@ envoyerSprint()
   console.log(this.sprint)
   let resp=this.dataService.KpiConfigSprintTickets(this.sprint);
   resp.subscribe((data)=>this.message=data);
+  location.reload();
 
 }
 
@@ -99,6 +103,7 @@ envoyerStatut()
   console.log(this.statut)
   let resp=this.dataService.KpiConfigStatutTickets(this.statut);
   resp.subscribe((data)=>this.message=data);
+  location.reload();
 
 }
 
@@ -110,18 +115,28 @@ envoyerEpic()
   console.log(this.epic)
   let resp=this.dataService.KpiConfigEpicTickets(this.epic);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 datedeb: ConfigDateDeb=new ConfigDateDeb(1,new Date(20,12,2020));
 
+
+version: ConfigVersion=new ConfigVersion(1,"");
+envoyerVersion()
+{
+  this.version.config_id=1;
+  console.log(this.version)
+  let resp=this.dataService.KpiConfigVersion(this.version);
+  resp.subscribe((data)=>this.message=data);
+  location.reload();
+}
 
 envoyerDateDeb()
 {  this.datedeb.config_id=1;
   console.log(this.datedeb)
   let resp=this.dataService.KpiConfigDateDebTickets(this.datedeb);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 datefin: ConfigDateFin=new ConfigDateFin(1,new Date(20,12,2020));
@@ -132,7 +147,7 @@ envoyerDateFin()
   console.log(this.datefin)
   let resp=this.dataService.KpiConfigDateFintickets(this.datefin);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 }
 

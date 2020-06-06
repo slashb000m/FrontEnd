@@ -5,18 +5,18 @@
 <h2 align="center">Configuration du Dashboard</h2>
 <div  fxLayout="row" fxLayoutAlign="start start">
       <h2>nom du collaborateur</h2>&nbsp;&nbsp;&nbsp;
-        <form class="example-form" >
-          <mat-form-field class="example-full-width">
-            <mat-label>Choisir</mat-label>
-            <input type="text" [(ngModel)]="nom.nom_collab" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete (optionSelected)="envoyerNom();"  #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option.name}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </form>
-
+        
+      <form class="statut_form">
+        <mat-form-field class="example-full-width">
+          <mat-label>collaborateur</mat-label>
+          <input  class="form-control" [(ngModel)]="nom.nom_collab" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto">
+          <mat-autocomplete (optionSelected)="envoyerNom();" #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of optionsNom" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
       <br>
       <br>
       <br>
@@ -55,6 +55,27 @@
           </mat-autocomplete>
         </mat-form-field>
       </form>
+
+      
+    <h2>Version :</h2>&nbsp;&nbsp;&nbsp;
+    <form class="example-form2">
+      <mat-form-field class="example-full-width">
+        <input type="text"
+               placeholder="Choisir statut"
+               [(ngModel)]="version.nom_version"
+               matInput
+               [formControl]="myControlVersion"
+               [matAutocomplete]="auto4">
+        <mat-autocomplete  (optionSelected)="envoyerVersion();" #auto4="matAutocomplete">
+          <mat-option *ngFor="let option2 of optionsVersion" [value]="option2">
+            {{option2}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+
+
+      
 
 
     </div>

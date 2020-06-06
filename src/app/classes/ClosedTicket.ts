@@ -7,4 +7,9 @@ export class ClosedTicket{
     nom_produit: string;
     nom_ticket: string;
     nom_client: string;
+    numero_sprint: number;
+    nom_epic: string;
+    statut: string;
+    
+    
 }

@@ -7,10 +7,10 @@
       <form class="statut_form">
           <mat-form-field class="example-full-width">
             <mat-label>collaborateur</mat-label>
-            <input  class="form-control" [(ngModel)]="statut.nom_statut" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <input  class="form-control" [(ngModel)]="statut.nom_statut" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto">
             <mat-autocomplete (optionSelected)="envoyerStatut();" #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option.name}}
+              <mat-option *ngFor="let option of optionsNom" [value]="option">
+                {{option}}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
@@ -56,6 +56,24 @@
       </form>
 
     </div>
+
+    <h2>Version :</h2>&nbsp;&nbsp;&nbsp;
+    <form class="example-form2">
+      <mat-form-field class="example-full-width">
+        <input type="text"
+               placeholder="Choisir statut"
+               [(ngModel)]="version.nom_version"
+               matInput
+               [formControl]="myControlVersion"
+               [matAutocomplete]="auto4">
+        <mat-autocomplete  (optionSelected)="envoyerVersion();" #auto4="matAutocomplete">
+          <mat-option *ngFor="let option2 of optionsVersion" [value]="option2">
+            {{option2}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+
 
 
 

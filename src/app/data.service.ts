@@ -68,7 +68,7 @@ public KpiConfigStatutTickets(ConfigStatut)
 
 public KpiConfigVersion(ConfigVersion)
 {
-  return this._http.post("http://localhost:8181/cconfigVersionKpi",ConfigVersion,{responseType:'text' as 'json'});
+  return this._http.post("http://localhost:8181/configVersion/Kpi",ConfigVersion,{responseType:'text' as 'json'});
 }
 
 public KpiConfigSprintTickets(ConfigSprint)

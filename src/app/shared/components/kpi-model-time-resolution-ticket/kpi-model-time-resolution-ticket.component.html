@@ -20,6 +20,9 @@
     <thead>
         <tr>
             <th> collaborateur</th>
+            <th> epic</th>
+            <th> version</th>
+            <th> n°: sprint</th>
             <th> nom ticket</th>
             <th> log</th>
             <th> temps de resolution</th>
@@ -30,6 +33,9 @@
     <tbody>
         <tr *ngFor="let Ticket of Tickets|paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
             <td>{{Ticket.first_name}}</td>
+            <td>{{Ticket.nom_epic}}</td>
+            <td>{{Ticket.nom_version}}</td>
+            <td>{{Ticket.numero_sprint}}</td>
             <td>{{Ticket.nom_ticket}}</td>
             <td>{{Ticket.nom_log}}</td>
             <td>{{Ticket.temps_de_resolution}}</td>

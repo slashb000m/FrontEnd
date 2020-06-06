@@ -21,6 +21,9 @@
     <thead>
         <tr>
             <th> collaborateur assigné</th>
+            <th> n°: sprint</th>
+            <th> statut</th>
+            <th> epic</th>
             <th> client issue</th>
             <th> nom ticket</th>
             <th> date création</th>
@@ -30,6 +33,9 @@
     <tbody>
         <tr *ngFor="let closedTicket of closedTickets|paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
             <td>{{closedTicket.first_name}}</td>
+            <td>{{closedTicket.numero_sprint}}</td>
+            <td>{{closedTicket.statut}}</td>
+            <td>{{closedTicket.nom_epic}}</td>
             <td>{{closedTicket.nom_client}}</td>
             <td>{{closedTicket.nom_ticket}}</td>
             <td>{{closedTicket.date_creation}}</td>

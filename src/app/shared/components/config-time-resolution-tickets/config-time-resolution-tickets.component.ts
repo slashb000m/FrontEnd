@@ -24,6 +24,7 @@ export class ConfigTimeResolutionTicketsComponent implements OnInit {
 
 
 
+
   myControl = new FormControl();
   options: User[] = [
     {name: 'Khalil Messadi'},
@@ -53,17 +54,21 @@ export class ConfigTimeResolutionTicketsComponent implements OnInit {
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
   
+  myControlNom = new FormControl();
+  optionsNom: string[] = ["peu importe","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+
   myControlEtatTicket = new FormControl();
-  optionsEtatTicket: string[] = ['Fermé', 'Retourné', 'En cours ','Attente Information'];
+  optionsEtatTicket: string[] = ['Fermé', 'Retourné', 'En cours ','Attente Information','peu importe'];
   
   myControlVersion = new FormControl();
-  optionsVersion: string[] = ['15', '12', '12','12'];
+  optionsVersion: string[] = ['peu importe','6.2-00', '6.1-00', '6.2-00a','6.1-00a'];
   
   myControlEpic = new FormControl();
-  optionsEpic: string[] = ['epic1', 'epic16', 'epic12','epic3'];
+  optionsEpic: string[] = ['peu importe','IBOR', 'Archive data from WS', 'Cloud: stabilization'];
 
   myControlSprint = new FormControl();
   optionsSprint: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+
 
   
 
@@ -83,6 +88,7 @@ envoyerNom()
   console.log(this.nom)
   let resp=this.dataService.KpiConfigNomCollab(this.nom);
   resp.subscribe((data)=>this.message=data);
+  location.reload();
 
 }
 
@@ -96,7 +102,7 @@ envoyerEpic()
   console.log(this.epic)
   let resp=this.dataService.KpiConfigEpicTickets(this.epic);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 
@@ -105,9 +111,9 @@ sprint: ConfigSprint=new ConfigSprint(1,1);
 envoyerSprint()
 {  this.sprint.config_id=3;
   console.log(this.sprint)
-  let resp=this.dataService.KpiConfigEpicTickets(this.epic);
+  let resp=this.dataService.KpiConfigSprintTickets(this.sprint);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 datedeb: ConfigDateDeb=new ConfigDateDeb(1,new Date(20,12,2020));
@@ -118,7 +124,7 @@ envoyerDateDeb()
   console.log(this.datedeb)
   let resp=this.dataService.KpiConfigDateDebTickets(this.datedeb);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 datefin: ConfigDateFin=new ConfigDateFin(1,new Date(20,12,2020));
@@ -129,7 +135,7 @@ envoyerDateFin()
   console.log(this.datefin)
   let resp=this.dataService.KpiConfigDateFintickets(this.datefin);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 envoyerVersion()
 {
@@ -137,7 +143,7 @@ envoyerVersion()
   console.log(this.version)
   let resp=this.dataService.KpiConfigVersion(this.version);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 
