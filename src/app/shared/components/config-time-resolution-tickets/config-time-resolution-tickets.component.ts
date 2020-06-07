@@ -10,7 +10,7 @@ import { ConfigDateDeb } from 'src/app/classes/ConfigDateDeb';
 import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
 import { ConfigNom } from 'src/app/classes/ConfigNom';
 import {ConfigVersion} from 'src/app/classes/ConfigVersion'
-
+import { KpiConfig } from 'src/app/classes/KpiConfig';
 
 export interface User {
   name: string;
@@ -21,7 +21,7 @@ export interface User {
   styleUrls: ['./config-time-resolution-tickets.component.scss']
 })
 export class ConfigTimeResolutionTicketsComponent implements OnInit {
-
+  config: KpiConfig;
 
 
 
@@ -42,6 +42,9 @@ export class ConfigTimeResolutionTicketsComponent implements OnInit {
         map(value => typeof value === 'string' ? value : value.name),
         map(name => name ? this._filter(name) : this.options.slice())
       );
+
+      this.dataService.getConfig3()
+      .subscribe(data => this.config = data);
   }
 
   displayFn(user: User): string {

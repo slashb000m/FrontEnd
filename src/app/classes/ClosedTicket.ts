@@ -10,6 +10,7 @@ export class ClosedTicket{
     numero_sprint: number;
     nom_epic: string;
     statut: string;
+    titre: string;
     
     
 }

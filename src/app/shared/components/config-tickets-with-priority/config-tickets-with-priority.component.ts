@@ -10,6 +10,7 @@ import { ConfigDateDeb } from 'src/app/classes/ConfigDateDeb';
 import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
 import { ConfigNom } from 'src/app/classes/ConfigNom';
 import {ConfigVersion} from 'src/app/classes/ConfigVersion'
+import { KpiConfig } from 'src/app/classes/KpiConfig';
 
 export interface User {
   name: string;
@@ -21,7 +22,7 @@ export interface User {
 })
 export class ConfigTicketsWithPriorityComponent implements OnInit {
 
-
+  config:KpiConfig
 
   myControl = new FormControl();
   options: User[] = [
@@ -38,6 +39,10 @@ export class ConfigTicketsWithPriorityComponent implements OnInit {
         map(value => typeof value === 'string' ? value : value.name),
         map(name => name ? this._filter(name) : this.options.slice())
       );
+
+      this.dataService.getConfig4()
+      .subscribe(data => this.config = data);
+    
   }
 
   displayFn(user: User): string {
@@ -115,7 +120,7 @@ envoyerSprint()
   console.log(this.sprint)
   let resp=this.dataService.KpiConfigSprintTickets(this.sprint);
   resp.subscribe((data)=>this.message=data);
-
+  location.reload();
 }
 
 datedeb: ConfigDateDeb=new ConfigDateDeb(1,new Date(20,12,2020));

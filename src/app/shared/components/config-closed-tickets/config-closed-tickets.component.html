@@ -6,7 +6,7 @@
         
       <form class="statut_form">
           <mat-form-field class="example-full-width">
-            <mat-label>collaborateur</mat-label>
+            <mat-label>{{config.statut}}</mat-label>
             <input  class="form-control" [(ngModel)]="statut.nom_statut" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto">
             <mat-autocomplete (optionSelected)="envoyerStatut();" #auto="matAutocomplete" [displayWith]="displayFn">
               <mat-option *ngFor="let option of optionsNom" [value]="option">
@@ -23,7 +23,7 @@
         <mat-form-field class="example-full-width">
           <input type="text"
           [(ngModel)]="sprint.numero_sprint"
-                 placeholder="Choisir Sprint"
+                 placeholder="{{config.sprint}}"
             
                  matInput
                  [formControl]="myControlSprintTicket"
@@ -42,7 +42,7 @@
           <input
            type="text"
           [(ngModel)]="epic.nom_epic"
-                 placeholder="Choisir epic"
+                 placeholder="{{config.epic}}"
                  
                  matInput
                  [formControl]="myControlEpicTicket"
@@ -61,7 +61,7 @@
     <form class="example-form2">
       <mat-form-field class="example-full-width">
         <input type="text"
-               placeholder="Choisir statut"
+               placeholder="{{config.version}}"
                [(ngModel)]="version.nom_version"
                matInput
                [formControl]="myControlVersion"
@@ -84,7 +84,7 @@
         
 <form class="Date_form">
       <mat-form-field> 
-        <input 
+        <input  placeholder="{{config.date_deb}}"
         name="something"
         [(ngModel)]="datedeb.date_deb" (dateChange)=envoyerDateDeb();
         class="form-control"
@@ -97,7 +97,7 @@
       <form class="Date_form">
       <mat-form-field> 
       
-        <input
+        <input placeholder="{{config.date_fin}}"
         name="something2"
          class="Date_form" [(ngModel)]="datefin.date_fin" (dateChange)=envoyerDateFin(); matInput [matDatepicker]="myDatePickerFin">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerFin"></mat-datepicker-toggle>

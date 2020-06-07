@@ -9,6 +9,7 @@ import { ConfigEpic } from 'src/app/classes/ConfigEpic';
 import { ConfigDateDeb } from 'src/app/classes/ConfigDateDeb';
 import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
 import { ConfigNom } from 'src/app/classes/ConfigNom';
+import { KpiConfig } from 'src/app/classes/KpiConfig';
 
 export interface User {
   name: string;
@@ -20,6 +21,9 @@ export interface User {
   styleUrls: ['./config-closed-returned-tickets.component.scss']
 })
 export class ConfigClosedReturnedTicketsComponent implements OnInit {
+
+  config: KpiConfig;
+
   myControl = new FormControl();
   options: User[] = [
     {name: 'Khalil Messadi'},
@@ -49,6 +53,12 @@ export class ConfigClosedReturnedTicketsComponent implements OnInit {
         map(value => typeof value === 'string' ? value : value.name),
         map(name => name ? this._filter(name) : this.options.slice())
       );
+
+      this.dataService.getConfig2()
+      .subscribe(data => this.config = data);
+    
+
+      
   }
 
   displayFn(user: User): string {

@@ -9,6 +9,7 @@ import { ConfigEpic } from 'src/app/classes/ConfigEpic';
 import { ConfigDateDeb } from 'src/app/classes/ConfigDateDeb';
 import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
 import { ConfigVersion } from 'src/app/classes/ConfigVersion';
+import { KpiConfig } from 'src/app/classes/KpiConfig';
 
 export interface User {
   name: string;
@@ -26,12 +27,14 @@ export interface User {
 })
 export class ConfigClosedTicketsComponent implements OnInit {
   
-
+  config: KpiConfig;
 
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getConfig1()
+    .subscribe(data => this.config = data);
   
       
   }

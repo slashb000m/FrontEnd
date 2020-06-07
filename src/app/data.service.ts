@@ -108,4 +108,26 @@ public KpiConfigDateFintickets(ConfigDateFin)
     return this._http.get<any[]>("http://localhost:8181/kpi/productivite/group-by-proportion-returned-validated-tickets");
   }
 
+  
+  // get Sservices for config 
+
+
+  getConfig1()
+  {
+    return this._http.get<KpiConfig>("http://localhost:8181/Config/kpi1");
+  }
+  getConfig2()
+  {
+    return this._http.get<KpiConfig>("http://localhost:8181/Config/kpi2");
+  }
+  getConfig3()
+  {
+    return this._http.get<KpiConfig>("http://localhost:8181/Config/kpi3");
+  }
+  getConfig4()
+  {
+    return this._http.get<KpiConfig>("http://localhost:8181/Config/kpi4");
+  }
+
+
 }

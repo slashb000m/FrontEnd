@@ -2,19 +2,7 @@
 
 <h2 align="center">Configuration du Dashboard</h2>
 <div  fxLayout="row" fxLayoutAlign="start start">
-      <h2>nom du collaborateur</h2>&nbsp;&nbsp;&nbsp;
-           
-      <form class="statut_form">
-        <mat-form-field class="example-full-width">
-          <mat-label>collaborateur</mat-label>
-          <input  class="form-control" [(ngModel)]="nom.nom_collab" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto">
-          <mat-autocomplete (optionSelected)="envoyerNom();" #auto="matAutocomplete" [displayWith]="displayFn">
-            <mat-option *ngFor="let option of optionsNom" [value]="option">
-              {{option}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </form>
+  
 
     
 
@@ -27,7 +15,7 @@
       <form class="example-form2">
         <mat-form-field class="example-full-width">
           <input type="text"
-                 placeholder="Choisir statut"
+                 placeholder="{{config.epic}}"
                  [(ngModel)]="epic.nom_epic"
                  matInput
                  [formControl]="myControlEpic"
@@ -44,7 +32,7 @@
       <form class="example-form2">
         <mat-form-field class="example-full-width">
           <input type="text"
-                 placeholder="Choisir statut"
+          placeholder="{{config.sprint}}"
                  [(ngModel)]="sprint.numero_sprint"
                  matInput
                  [formControl]="myControlSprint"
@@ -62,7 +50,7 @@
       <form class="example-form2">
         <mat-form-field class="example-full-width">
           <input type="text"
-                 placeholder="Choisir statut"
+          placeholder="{{config.version}}"
                  [(ngModel)]="version.nom_version"
                  matInput
                  [formControl]="myControlVersion"
@@ -87,6 +75,7 @@
 <form class="Date_form">
       <mat-form-field> 
         <input 
+        placeholder="{{config.date_deb}}"
         name="something"
         [(ngModel)]="datedeb.date_deb" (dateChange)=envoyerDateDeb();
         class="form-control"
@@ -100,6 +89,7 @@
       <mat-form-field> 
       
         <input
+        placeholder="{{config.date_fin}}"
         name="something2"
          class="Date_form" [(ngModel)]="datefin.date_fin" (dateChange)=envoyerDateFin(); matInput [matDatepicker]="myDatePickerFin">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerFin"></mat-datepicker-toggle>
