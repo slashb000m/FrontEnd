@@ -1,4 +1,15 @@
 
+        <div>
+            <app-config-closed-returned-tickets>
+                
+            </app-config-closed-returned-tickets>
+        </div>
+        <br>
+        <br>
+            
+    
+
+        
     <div class="container text-center">
         <h1> Proportion Tickets Closed VS ticket Returned par la QA</h1>
     </div>
@@ -24,6 +35,8 @@
             <th> collaborateur assigné</th>
             <th> date création</th>
             <th> version </th>
+            <th> numero_sprint </th>
+            <th> epic </th>
             <th> etat </th>
 
         </tr>
@@ -32,6 +45,8 @@
         <tr *ngFor="let TicketsProportion of TicketsProportions |paginate: { itemsPerPage: 5, currentPage: p }| filter:search ">
             <td>{{TicketsProportion.first_name }}</td>
             <td>{{TicketsProportion.date_creation}}</td>
+            <td>{{TicketsProportion.nom_epic}}</td>
+            <td>{{TicketsProportion.numero_sprint}}</td>
             <td>{{TicketsProportion.nom_version}}</td>
             <div *ngIf="TicketsProportion.id_statut==1">
                 <td>validé</td>
@@ -56,12 +71,3 @@
 
         </div>
 
-        <div>
-            <app-config-closed-returned-tickets>
-                
-            </app-config-closed-returned-tickets>
-        </div>
-            
-    
-
-        

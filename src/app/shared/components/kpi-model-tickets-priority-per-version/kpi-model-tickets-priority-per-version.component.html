@@ -1,5 +1,11 @@
 
 
+    <div>
+        <app-config-tickets-with-priority>
+        </app-config-tickets-with-priority>
+
+    </div>
+    
     <div class="container text-center">
         <h1>priorite des tickets selon leur version</h1>
     </div>
@@ -24,7 +30,10 @@
             <th> date création</th>
             <th> produit</th>
             <th> Nom du ticket </th>
-            <th> priorite </th>
+            <th> Epic </th>
+            <th> Version </th>
+            <th> n°: sprint</th>
+            <th> priorite</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +41,9 @@
             <td>{{TicketsPriority.date_creation}}</td>
             <td>{{TicketsPriority.nom_produit}}</td>
             <td>{{TicketsPriority.nom_ticket}}</td>
+            <td>{{TicketsPriority.nom_epic}}</td>
+            <td>{{TicketsPriority.nom_version}}</td>
+            <td>{{TicketsPriority.numero_sprint}}</td>
             <td>{{TicketsPriority.priorite}}</td> 
         </tr>
     </tbody>
@@ -50,11 +62,6 @@
         </div>
     </div>
 
-    <div>
-        <app-config-tickets-with-priority>
-        </app-config-tickets-with-priority>
-
-    </div>
         
     
     

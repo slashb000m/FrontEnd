@@ -5,4 +5,6 @@ export interface ReturnedValidatedTickets {
     first_name: string;
     nom_produit: string;
     last_name: string;
+    nom_epic: string;
+    numero_sprint: number;
 }
