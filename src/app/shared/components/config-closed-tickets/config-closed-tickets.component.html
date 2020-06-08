@@ -1,8 +1,8 @@
-<h2 align="center">Configuration du Template</h2>
 
- 
+
+      <br>     <br>
       <div fxLayout="row" fxLayoutAlign="start start">
-      <h2>Statut du ticket</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <h3>Statut du ticket</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
       <form class="statut_form">
           <mat-form-field class="example-full-width">
@@ -18,7 +18,7 @@
 
       
 
-      <h2>sprint</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <h3>sprint</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <form class="sprint_form">
         <mat-form-field class="example-full-width">
           <input type="text"
@@ -36,7 +36,7 @@
         </mat-form-field>
       </form>
 
-    <h2>epic</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h3>epic</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <form class="epic_form">
         <mat-form-field class="example-full-width">
           <input
@@ -55,9 +55,8 @@
         </mat-form-field>
       </form>
 
-    </div>
-
-    <h2>Version :</h2>&nbsp;&nbsp;&nbsp;
+      
+    <h3>Version :</h3>&nbsp;&nbsp;&nbsp;
     <form class="example-form2">
       <mat-form-field class="example-full-width">
         <input type="text"
@@ -73,6 +72,22 @@
         </mat-autocomplete>
       </mat-form-field>
     </form>
+
+    <h3>nom collaborateur</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <form class="nom_collab_form">
+      <mat-form-field class="example-full-width">
+        <mat-label>{{config.nom_collab}}</mat-label>
+        <input  class="form-control" [(ngModel)]="nom.nom_collab" type="text" matInput [formControl]="myControlNomCollab" [matAutocomplete]="auto5">
+        <mat-autocomplete (optionSelected)="envoyerNomCollab();" #auto5="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of optionsNomCollab" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+
+    </div>
+
 
 
 

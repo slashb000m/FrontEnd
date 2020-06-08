@@ -4,15 +4,14 @@
                 
             </app-config-closed-returned-tickets>
         </div>
-        <br>
-        <br>
-            
+       <br>
     
 
         
     <div class="container text-center">
-        <h1> Proportion Tickets Closed VS ticket Returned par la QA</h1>
+        <h1 align="center"> Proportion Tickets Validated VS test failed </h1>
     </div>
+    <br>
     <div>
         <div fxFlex="75" fxLayout="column" fxLayoutAlign="start stretch" fxFlex="75" >
     
@@ -49,10 +48,10 @@
             <td>{{TicketsProportion.numero_sprint}}</td>
             <td>{{TicketsProportion.nom_version}}</td>
             <div *ngIf="TicketsProportion.id_statut==1">
-                <td>validé</td>
+                <td>validated</td>
             </div>
             <div *ngIf="TicketsProportion.id_statut==2">
-                <td>retourné par QA</td>
+                <td>Test failed</td>
             </div>
             
         </tr>

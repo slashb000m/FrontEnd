@@ -10,6 +10,7 @@ import { ConfigDateDeb } from 'src/app/classes/ConfigDateDeb';
 import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
 import { ConfigVersion } from 'src/app/classes/ConfigVersion';
 import { KpiConfig } from 'src/app/classes/KpiConfig';
+import { ConfigNom } from 'src/app/classes/ConfigNom';
 
 export interface User {
   name: string;
@@ -58,12 +59,16 @@ export class ConfigClosedTicketsComponent implements OnInit {
   optionsEpicTicket: string[] =  ['peu importe','IBOR', 'Archive data from WS', 'Cloud: stabilization'];
 
   myControlNom = new FormControl();
-  optionsNom: string[] = ["peu importe","Fermé","Retourné","Attente d'information ","En cours"];
+  optionsNom: string[] = ["peu importe","closed","test failed","opened","done"];
  
   
   myControlVersion = new FormControl();
   optionsVersion: string[] = ['peu importe','6.2-00', '6.1-00', '6.2-00a','6.1-00a'];
  
+
+  myControlNomCollab = new FormControl();
+  optionsNomCollab: string[] = ["peu importe","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+
 
   myControl = new FormControl();
   options: User[] = [
@@ -152,6 +157,19 @@ envoyerDateFin()
   resp.subscribe((data)=>this.message=data);
   location.reload();
 }
+
+
+nom: ConfigNom=new ConfigNom(1,"");
+envoyerNomCollab()
+{  this.nom.config_id=1;
+  console.log(this.nom)
+  let resp=this.dataService.KpiConfigNomCollab(this.nom);
+  resp.subscribe((data)=>this.message=data);
+  location.reload();
+}
+
+
+
 }
 
 

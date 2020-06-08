@@ -13,10 +13,10 @@ export class KpiDisplayerComponent implements OnInit {
 
   }
    kpis=[
-    {id:1,name:"nombre de ticket closed par collaborateur",linkKpi:"http://localhost:4200/kpi/closed_tickets",linkConfig:"http://localhost:4200/config/closed-tickets"},
-    {id:2,name:"rapport ticket closed/returned par collaborateur",linkKpi:"http://localhost:4200/kpi/porportion_closed_returned_tickets",linkConfig:"http://localhost:4200/config/closed-returned-tickets" },
-    {id:3,name:"temps moyen de resolution de ticket",linkKpi:"http://localhost:4200/kpi/time-resolution_tickets" ,linkConfig:"http://localhost:4200/config/resolution-time-tickets"},
-    {id:4,name:"priorite des tickets selon leur version",linkKpi:"http://localhost:4200/kpi/tickets_priority_by_version",linkConfig:"http://localhost:4200/config/tickets-with-priority" }
+    {id:1,name:"Liste des tickets selon configuration",linkKpi:"http://localhost:4200/kpi/closed_tickets",linkConfig:"http://localhost:4200/config/closed-tickets"},
+    {id:2,name:"rapport sur proportion ticket closed/test failed ",linkKpi:"http://localhost:4200/kpi/porportion_closed_returned_tickets",linkConfig:"http://localhost:4200/config/closed-returned-tickets" },
+    {id:3,name:"Rapport sur le temps moyen de résolution de tickets",linkKpi:"http://localhost:4200/kpi/time-resolution_tickets" ,linkConfig:"http://localhost:4200/config/resolution-time-tickets"},
+    {id:4,name:"rapport sur la proportion de priorité des tickets",linkKpi:"http://localhost:4200/kpi/tickets_priority_by_version",linkConfig:"http://localhost:4200/config/tickets-with-priority" }
    ]
    collection: any[] = this.kpis;  
   

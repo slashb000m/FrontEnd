@@ -42,7 +42,7 @@ export class ConfigClosedReturnedTicketsComponent implements OnInit {
   optionsVersion:  string[] = ['peu importe','6.2-00', '6.1-00', '6.2-00a','6.1-00a'];
 
   myControlNom = new FormControl();
-  optionsNom: string[] = ["peu importe","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+  optionsNom: string[] = ["peu importe","Amine Lakhoua","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
   
   filteredOptions: Observable<User[]>;
 
