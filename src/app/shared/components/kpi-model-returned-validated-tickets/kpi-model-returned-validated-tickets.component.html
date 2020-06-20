@@ -11,7 +11,7 @@
     <div class="container text-center">
         <h1 align="center"> Proportion Tickets Validated VS test failed </h1>
     </div>
-    <br>
+         <br>
     <div>
         <div fxFlex="75" fxLayout="column" fxLayoutAlign="start stretch" fxFlex="75" >
     
@@ -33,9 +33,10 @@
         <tr>
             <th> collaborateur assigné</th>
             <th> date création</th>
-            <th> version </th>
-            <th> numero_sprint </th>
             <th> epic </th>
+            <th> module </th>
+            <th> numero_sprint </th>
+            <th> version </th>
             <th> etat </th>
 
         </tr>
@@ -45,6 +46,7 @@
             <td>{{TicketsProportion.first_name }}</td>
             <td>{{TicketsProportion.date_creation}}</td>
             <td>{{TicketsProportion.nom_epic}}</td>
+            <td>{{TicketsProportion.nom_module}}</td>
             <td>{{TicketsProportion.numero_sprint}}</td>
             <td>{{TicketsProportion.nom_version}}</td>
             <div *ngIf="TicketsProportion.id_statut==1">

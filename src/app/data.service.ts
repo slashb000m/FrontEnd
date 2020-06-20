@@ -13,6 +13,11 @@ import { ConfigDateDeb } from './classes/ConfigDateDeb';
 import { ConfigDateFin } from './classes/ConfigDateFin';
 import { ConfigVersion } from './classes/ConfigVersion';
 import { ConfigNom } from './classes/ConfigNom';
+import { getConfigNom } from './classes/getConfigNom';
+import { getConfigStatut } from './classes/getConfigStatut';
+import { getConfigModule } from './classes/getConfigModule';
+import { getConfigEpic } from './classes/getConfigEpic';
+import { getConfigVersion } from './classes/getConfigVersion';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +74,11 @@ public KpiConfigStatutTickets(ConfigStatut)
 public KpiConfigVersion(ConfigVersion)
 {
   return this._http.post("http://localhost:8181/configVersion/Kpi",ConfigVersion,{responseType:'text' as 'json'});
+}
+
+public KpiConfigModuleTickets(ConfigModule)
+{
+  return this._http.post("http://localhost:8181/configModule/Kpi",ConfigModule,{responseType:'text' as 'json'});
 }
 
 public KpiConfigSprintTickets(ConfigSprint)
@@ -128,6 +138,32 @@ public KpiConfigDateFintickets(ConfigDateFin)
   {
     return this._http.get<KpiConfig>("http://localhost:8181/Config/kpi4");
   }
+
+// get values for input 
+
+
+getConfigNom()
+{
+  return this._http.get<getConfigNom[]>("http://localhost:8181/champsConfig/nom");
+}
+
+getConfigStatut()
+{
+  return this._http.get<getConfigStatut[]>("http://localhost:8181/champsConfig/statut");
+}
+getConfigmodule()
+{
+  return this._http.get<getConfigModule[]>("http://localhost:8181/champsConfig/module");
+}
+getConfigEpic()
+{
+  return this._http.get<getConfigEpic[]>("http://localhost:8181/champsConfig/epic");
+}
+getConfigVersion()
+{
+  return this._http.get<getConfigVersion[]>("http://localhost:8181/champsConfig/version");
+}
+
 
 
 }

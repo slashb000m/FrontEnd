@@ -7,16 +7,31 @@
       <form class="statut_form">
           <mat-form-field class="example-full-width">
             <mat-label>{{config.statut}}</mat-label>
-            <input  class="form-control" [(ngModel)]="statut.nom_statut" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto">
-            <mat-autocomplete (optionSelected)="envoyerStatut();" #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of optionsNom" [value]="option">
-                {{option}}
+            <input  class="form-control" [(ngModel)]="statut.nom_statut" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto9">
+            <mat-autocomplete (optionSelected)="envoyerStatut();" #auto9="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of inputstatut " [value]="option.descrption">
+                {{option.descrption}}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
         </form>
 
+        <h3>Module</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <form class="statut_form">
+          <mat-form-field class="example-full-width">
+            <mat-label>{{config.nom_module}}</mat-label>
+            <input  class="form-control" [(ngModel)]="module.nom_module" type="text" matInput [formControl]="myControlModule" [matAutocomplete]="auto6">
+            <mat-autocomplete (optionSelected)="envoyerModule();" #auto6="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of inputmodule" [value]="option.nom">
+                {{option.nom}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
       
+
+
+ 
 
       <h3>sprint</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <form class="sprint_form">
@@ -48,8 +63,8 @@
                  [formControl]="myControlEpicTicket"
                  [matAutocomplete]="auto3">
           <mat-autocomplete (optionSelected)="envoyerEpic()" #auto3="matAutocomplete">
-            <mat-option *ngFor="let option2 of optionsEpicTicket" [value]="option2">
-              {{option2}}
+            <mat-option *ngFor="let option2 of inputepic" [value]="option2.nom">
+              {{option2.nom}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
@@ -66,28 +81,30 @@
                [formControl]="myControlVersion"
                [matAutocomplete]="auto4">
         <mat-autocomplete  (optionSelected)="envoyerVersion();" #auto4="matAutocomplete">
-          <mat-option *ngFor="let option2 of optionsVersion" [value]="option2">
-            {{option2}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
-
-    <h3>nom collaborateur</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <form class="nom_collab_form">
-      <mat-form-field class="example-full-width">
-        <mat-label>{{config.nom_collab}}</mat-label>
-        <input  class="form-control" [(ngModel)]="nom.nom_collab" type="text" matInput [formControl]="myControlNomCollab" [matAutocomplete]="auto5">
-        <mat-autocomplete (optionSelected)="envoyerNomCollab();" #auto5="matAutocomplete" [displayWith]="displayFn">
-          <mat-option *ngFor="let option of optionsNomCollab" [value]="option">
-            {{option}}
+          <mat-option *ngFor="let option2 of inputversion" [value]="option2.nom_version">
+            {{option2.nom_version}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
     </form>
 
     </div>
-
+<br>
+<br>
+<div>
+    <h3>nom collaborateur</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <form class="nom_collab_form">
+      <mat-form-field class="example-full-width">
+        <mat-label>{{config.nom_collab}}</mat-label>
+        <input  class="form-control" [(ngModel)]="nom.nom_collab" type="text" matInput [formControl]="myControlNomCollab" [matAutocomplete]="auto5">
+        <mat-autocomplete (optionSelected)="envoyerNomCollab();" #auto5="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of inputnom" [value]="option.first_name">
+            {{option.first_name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
 
 
 
@@ -109,12 +126,12 @@
       </mat-form-field>
     </form>
       <h3>Au :  </h3>
-      <form class="Date_form">
+      <form class="Date_form2">
       <mat-form-field> 
       
         <input placeholder="{{config.date_fin}}"
         name="something2"
-         class="Date_form" [(ngModel)]="datefin.date_fin" (dateChange)=envoyerDateFin(); matInput [matDatepicker]="myDatePickerFin">
+         class="Date_form2" [(ngModel)]="datefin.date_fin" (dateChange)=envoyerDateFin(); matInput [matDatepicker]="myDatePickerFin">
         <mat-datepicker-toggle  matSuffix [for]="myDatePickerFin"></mat-datepicker-toggle>
         <mat-datepicker  #myDatePickerFin> </mat-datepicker>
       </mat-form-field>

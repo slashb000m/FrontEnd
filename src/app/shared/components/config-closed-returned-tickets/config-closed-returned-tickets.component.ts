@@ -11,6 +11,14 @@ import { ConfigDateFin } from 'src/app/classes/ConfigDateFin';
 import { ConfigNom } from 'src/app/classes/ConfigNom';
 import { KpiConfig } from 'src/app/classes/KpiConfig';
 
+import { ConfigModule } from 'src/app/classes/ConfigModule';
+import { getConfigNom } from 'src/app/classes/getConfigNom';
+import { getConfigStatut } from 'src/app/classes/getConfigStatut';
+import { getConfigModule } from 'src/app/classes/getConfigModule';
+import { getConfigEpic } from 'src/app/classes/getConfigEpic';
+import { getConfigVersion } from 'src/app/classes/getConfigVersion';
+
+
 export interface User {
   name: string;
 }
@@ -21,6 +29,13 @@ export interface User {
   styleUrls: ['./config-closed-returned-tickets.component.scss']
 })
 export class ConfigClosedReturnedTicketsComponent implements OnInit {
+
+  
+  inputnom :getConfigNom[]
+  inputstatut :getConfigStatut[]
+  inputmodule :getConfigModule[]
+  inputepic :getConfigEpic[]
+  inputversion :getConfigVersion[]
 
   config: KpiConfig;
 
@@ -35,6 +50,9 @@ export class ConfigClosedReturnedTicketsComponent implements OnInit {
   myControlEpic = new FormControl();
   optionsEpic: string[] =  ['peu importe','IBOR', 'Archive data from WS', 'Cloud: stabilization'];
 
+  myControlModule = new FormControl();
+  optionsModule: string[] = ['peu importe',"GUI","Import/Export","DQC"];
+
   myControlSprint = new FormControl();
   optionsSprint: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 
@@ -42,7 +60,7 @@ export class ConfigClosedReturnedTicketsComponent implements OnInit {
   optionsVersion:  string[] = ['peu importe','6.2-00', '6.1-00', '6.2-00a','6.1-00a'];
 
   myControlNom = new FormControl();
-  optionsNom: string[] = ["peu importe","Amine Lakhoua","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+  optionsNom: string[] = ["Khalil Messadi","peu importe","Amine Lakhoua","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
   
   filteredOptions: Observable<User[]>;
 
@@ -56,6 +74,22 @@ export class ConfigClosedReturnedTicketsComponent implements OnInit {
 
       this.dataService.getConfig2()
       .subscribe(data => this.config = data);
+
+      
+    this.dataService.getConfigNom()
+    .subscribe(data => this.inputnom = data);
+
+    this.dataService.getConfigStatut()
+    .subscribe(data => this.inputstatut = data);
+
+    this.dataService.getConfigmodule()
+    .subscribe(data => this.inputmodule = data);
+
+    this.dataService.getConfigEpic()
+    .subscribe(data => this.inputepic = data);
+
+    this.dataService.getConfigVersion()
+    .subscribe(data => this.inputversion = data);
     
 
       
@@ -89,7 +123,18 @@ envoyerNom()
   location.reload();
 }
 
+module: ConfigModule=new ConfigModule(1,"");
 
+
+envoyerModule()
+{
+  this.module.config_id=2;
+  console.log(this.module)
+  let resp=this.dataService.KpiConfigModuleTickets(this.module);
+  resp.subscribe((data)=>this.message=data);
+  location.reload();
+
+}
 
 
 

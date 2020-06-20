@@ -8,8 +8,8 @@
           <mat-label>{{config.nom_collab}}</mat-label>
           <input  class="form-control" [(ngModel)]="nom.nom_collab" type="text" matInput [formControl]="myControlNom" [matAutocomplete]="auto">
           <mat-autocomplete (optionSelected)="envoyerNom();" #auto="matAutocomplete" [displayWith]="displayFn">
-            <mat-option *ngFor="let option of optionsNom" [value]="option">
-              {{option}}
+            <mat-option *ngFor="let option of inputnom" [value]="option.first_name">
+              {{option.first_name}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
@@ -18,7 +18,19 @@
       <br>
       <br>
 
-
+      <h3>Module</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <form class="statut_form">
+        <mat-form-field class="example-full-width">
+          <mat-label>{{config.nom_module}}</mat-label>
+          <input  class="form-control" [(ngModel)]="module.nom_module" type="text" matInput [formControl]="myControlModule" [matAutocomplete]="auto6">
+          <mat-autocomplete (optionSelected)="envoyerModule();" #auto6="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of inputmodule" [value]="option.nom">
+              {{option.nom}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    
     <h3>Nom de l'epic</h3>&nbsp;&nbsp;&nbsp;
       <form class="example-form2">
         <mat-form-field class="example-full-width">
@@ -29,8 +41,8 @@
                  [formControl]="myControlEpic"
                  [matAutocomplete]="auto2">
           <mat-autocomplete (optionSelected)="envoyerEpic();" #auto2="matAutocomplete">
-            <mat-option *ngFor="let option2 of optionsEpic" [value]="option2">
-              {{option2}}
+            <mat-option *ngFor="let option2 of inputepic" [value]="option2.nom">
+              {{option2.nom}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
@@ -64,8 +76,8 @@
                [formControl]="myControlVersion"
                [matAutocomplete]="auto4">
         <mat-autocomplete  (optionSelected)="envoyerVersion();" #auto4="matAutocomplete">
-          <mat-option *ngFor="let option2 of optionsVersion" [value]="option2">
-            {{option2}}
+          <mat-option *ngFor="let option2 of inputversion" [value]="option2.nom_version">
+            {{option2.nom_version}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>

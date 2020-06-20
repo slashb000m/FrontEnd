@@ -7,5 +7,6 @@ export interface TicketsPriority
     nom_version: string; 
     numero_sprint: number; 
     nom_epic : string;
+    nom_module:string; 
 
 }

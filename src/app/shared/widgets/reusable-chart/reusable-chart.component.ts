@@ -45,7 +45,10 @@ if(this.switch_Pie_chart2){
       },
       title: {
           text: 'Proportion des tickets selon leur Priorité  '
+          
       },
+      subtitle: {
+        text: 'pourcentage selon priorité'},
       tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:f}%</b>'
 
@@ -88,6 +91,9 @@ if(this.switch_Pie_chart2){
        title: {
          text: 'Proportion des tickets validé par rapport a ceux retourné  '
        },
+
+       subtitle: {
+        text: 'en noir Test failed , en bleu Validated '},
        tooltip: {
          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
 
@@ -107,7 +113,7 @@ if(this.switch_Pie_chart2){
            cursor: 'pointer',
            dataLabels: {
              enabled: true,
-             format: '<b>{point.name}</b>: {point.percentage:.1f}'
+             format: ' {point.percentage:.1f} %'
            }
          }
        },

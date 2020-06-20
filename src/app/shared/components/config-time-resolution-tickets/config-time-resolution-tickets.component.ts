@@ -12,6 +12,15 @@ import { ConfigNom } from 'src/app/classes/ConfigNom';
 import {ConfigVersion} from 'src/app/classes/ConfigVersion'
 import { KpiConfig } from 'src/app/classes/KpiConfig';
 
+import { getConfigNom } from 'src/app/classes/getConfigNom';
+import { getConfigStatut } from 'src/app/classes/getConfigStatut';
+import { getConfigModule } from 'src/app/classes/getConfigModule';
+import { getConfigEpic } from 'src/app/classes/getConfigEpic';
+import { getConfigVersion } from 'src/app/classes/getConfigVersion';
+
+import { ConfigModule } from 'src/app/classes/ConfigModule';
+
+
 export interface User {
   name: string;
 }
@@ -22,6 +31,12 @@ export interface User {
 })
 export class ConfigTimeResolutionTicketsComponent implements OnInit {
   config: KpiConfig;
+
+  inputnom :getConfigNom[]
+  inputstatut :getConfigStatut[]
+  inputmodule :getConfigModule[]
+  inputepic :getConfigEpic[]
+  inputversion :getConfigVersion[]
 
 
 
@@ -45,6 +60,22 @@ export class ConfigTimeResolutionTicketsComponent implements OnInit {
 
       this.dataService.getConfig3()
       .subscribe(data => this.config = data);
+
+      
+    this.dataService.getConfigNom()
+    .subscribe(data => this.inputnom = data);
+
+    this.dataService.getConfigStatut()
+    .subscribe(data => this.inputstatut = data);
+
+    this.dataService.getConfigmodule()
+    .subscribe(data => this.inputmodule = data);
+
+    this.dataService.getConfigEpic()
+    .subscribe(data => this.inputepic = data);
+
+    this.dataService.getConfigVersion()
+    .subscribe(data => this.inputversion = data);
   }
 
   displayFn(user: User): string {
@@ -58,16 +89,19 @@ export class ConfigTimeResolutionTicketsComponent implements OnInit {
   }
   
   myControlNom = new FormControl();
-  optionsNom: string[] = ["peu importe","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+  optionsNom: string[] = ["Amine Lakhoua","peu importe","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Khalil Messadi","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+
+  myControlModule = new FormControl();
+  optionsModule: string[] = ["GUI","Import/Export","DQC",'peu importe'];
 
   myControlEtatTicket = new FormControl();
   optionsEtatTicket: string[] = ['Fermé', 'Retourné', 'En cours ','Attente Information','peu importe'];
   
   myControlVersion = new FormControl();
-  optionsVersion: string[] = ['peu importe','6.2-00', '6.1-00', '6.2-00a','6.1-00a'];
+  optionsVersion: string[] = ['6.2-00', '6.1-00', '6.2-00a','6.1-00a','peu importe'];
   
   myControlEpic = new FormControl();
-  optionsEpic: string[] = ['peu importe','IBOR', 'Archive data from WS', 'Cloud: stabilization'];
+  optionsEpic: string[] = ['IBOR', 'Archive data from WS', 'Cloud: stabilization','peu importe'];
 
   myControlSprint = new FormControl();
   optionsSprint: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
@@ -85,6 +119,18 @@ export class ConfigTimeResolutionTicketsComponent implements OnInit {
 
 version: ConfigVersion=new ConfigVersion(1,"");
   
+module: ConfigModule=new ConfigModule(1,"");
+
+
+envoyerModule()
+{
+  this.module.config_id=3;
+  console.log(this.module)
+  let resp=this.dataService.KpiConfigModuleTickets(this.module);
+  resp.subscribe((data)=>this.message=data);
+  location.reload();
+
+}
 envoyerNom()
 {
   this.nom.config_id=3;

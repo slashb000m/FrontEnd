@@ -11,4 +11,6 @@ export interface TicketsResolutionTime
     nom_version:string;
     nom_epic: string;
     numero_sprint: number;
+    nom_module:String; 
+    
 }

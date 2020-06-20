@@ -11,6 +11,7 @@ export class ClosedTicket{
     nom_epic: string;
     statut: string;
     titre: string;
+    nom_module: string;
     
     
 }

@@ -12,7 +12,16 @@ import { ConfigVersion } from 'src/app/classes/ConfigVersion';
 import { KpiConfig } from 'src/app/classes/KpiConfig';
 import { ConfigNom } from 'src/app/classes/ConfigNom';
 
-export interface User {
+import { ConfigModule } from 'src/app/classes/ConfigModule';
+import { getConfigNom } from 'src/app/classes/getConfigNom';
+import { getConfigStatut } from 'src/app/classes/getConfigStatut';
+import { getConfigModule } from 'src/app/classes/getConfigModule';
+import { getConfigEpic } from 'src/app/classes/getConfigEpic';
+import { getConfigVersion } from 'src/app/classes/getConfigVersion';
+
+
+export interface User 
+{
   name: string;
 }
 
@@ -30,14 +39,34 @@ export class ConfigClosedTicketsComponent implements OnInit {
   
   config: KpiConfig;
 
+  inputnom :getConfigNom[]
+  inputstatut :getConfigStatut[]
+  inputmodule :getConfigModule[]
+  inputepic :getConfigEpic[]
+  inputversion :getConfigVersion[]
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getConfig1()
     .subscribe(data => this.config = data);
+
+    this.dataService.getConfigNom()
+    .subscribe(data => this.inputnom = data);
+
+    this.dataService.getConfigStatut()
+    .subscribe(data => this.inputstatut = data);
+
+    this.dataService.getConfigmodule()
+    .subscribe(data => this.inputmodule = data);
+
+    this.dataService.getConfigEpic()
+    .subscribe(data => this.inputepic = data);
+
+    this.dataService.getConfigVersion()
+    .subscribe(data => this.inputversion = data);
   
-      
+
   }
 
   
@@ -55,6 +84,9 @@ export class ConfigClosedTicketsComponent implements OnInit {
   myControlSprintTicket = new FormControl();
   optionsSprintTicket: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
   
+  myControlModule = new FormControl();
+  optionsModule: string[] = ['peu importe',"GUI","Import/Export","DQC"];
+
   myControlEpicTicket = new FormControl();
   optionsEpicTicket: string[] =  ['peu importe','IBOR', 'Archive data from WS', 'Cloud: stabilization'];
 
@@ -67,7 +99,7 @@ export class ConfigClosedTicketsComponent implements OnInit {
  
 
   myControlNomCollab = new FormControl();
-  optionsNomCollab: string[] = ["peu importe","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
+  optionsNomCollab: string[] = ["peu importe","Khalil Messadi","Mohamed El Raies","Souha Ayachi","Shiraz Bouaajin ","Feriel Khalil","Sourour Blel","	Walli Allah","Malik Hassen","Amine Lakhoua","Syrine Ben Aallah","Saber Talbi","Sarra Dhalfaoui"];
 
 
   myControl = new FormControl();
@@ -98,9 +130,20 @@ envoyerSprint()
   let resp=this.dataService.KpiConfigSprintTickets(this.sprint);
   resp.subscribe((data)=>this.message=data);
   location.reload();
-
 }
 
+
+module: ConfigModule=new ConfigModule(1,"");
+
+
+envoyerModule()
+{
+  this.module.config_id=1;
+  console.log(this.module)
+  let resp=this.dataService.KpiConfigModuleTickets(this.module);
+  resp.subscribe((data)=>this.message=data);
+  location.reload();
+}
 
 
 statut: ConfigStatut=new ConfigStatut(1,"");

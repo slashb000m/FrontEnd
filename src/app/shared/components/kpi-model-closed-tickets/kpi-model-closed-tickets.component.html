@@ -6,7 +6,7 @@
    <br>
 <div fxLayout="column" fxLayoutAlign="end start" >
     <div class="container text-center">
-        <h1>Tickets closed par collaborateurs</h1>
+        <h1>Liste des tickets</h1>
     </div>
     
     
@@ -26,10 +26,11 @@
             <table>
     <thead>
         <tr>
-            <th> collaborateur assigné</th>
+            <th> Manager en charge</th>
             <th> n°: sprint</th>
             <th> statut</th>
             <th> epic</th>
+            <th> module</th>
             <th> client issue</th>
             <th> titre</th>
             <th> référence</th>
@@ -43,6 +44,7 @@
             <td>{{closedTicket.numero_sprint}}</td>
             <td>{{closedTicket.statut}}</td>
             <td>{{closedTicket.nom_epic}}</td>
+            <td>{{closedTicket.nom_module}}</td>
             <td>{{closedTicket.nom_client}}</td>
             <td>{{closedTicket.titre}}</td>
             <td>{{closedTicket.nom_ticket}}</td>
