@@ -43,6 +43,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ConfigClosedReturnedTicketsComponent } from './components/config-closed-returned-tickets/config-closed-returned-tickets.component';
 import { ConfigTimeResolutionTicketsComponent } from './components/config-time-resolution-tickets/config-time-resolution-tickets.component';
 import { ConfigTicketsWithPriorityComponent } from './components/config-tickets-with-priority/config-tickets-with-priority.component';
+import { DashboardCreatorComponent } from './components/dashboard-creator/dashboard-creator.component';
+import { DashboardDisplayerComponent } from './components/dashboard-displayer/dashboard-displayer.component';
 
 
 
@@ -72,6 +74,8 @@ import { ConfigTicketsWithPriorityComponent } from './components/config-tickets-
     ConfigClosedReturnedTicketsComponent,
     ConfigTimeResolutionTicketsComponent,
     ConfigTicketsWithPriorityComponent,
+    DashboardCreatorComponent,
+    DashboardDisplayerComponent,
     
 
 
@@ -128,8 +132,9 @@ import { ConfigTicketsWithPriorityComponent } from './components/config-tickets-
      ConfigClosedTicketsComponent,
      ConfigClosedReturnedTicketsComponent,
      ConfigTimeResolutionTicketsComponent,
-     ConfigTicketsWithPriorityComponent
-
+     ConfigTicketsWithPriorityComponent,
+     DashboardCreatorComponent,
+     DashboardDisplayerComponent
    
   ]
 })

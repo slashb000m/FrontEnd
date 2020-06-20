@@ -12,6 +12,8 @@ import { ConfigClosedTicketsComponent } from './shared/components/config-closed-
 import { ConfigClosedReturnedTicketsComponent } from './shared/components/config-closed-returned-tickets/config-closed-returned-tickets.component';
 import { ConfigTimeResolutionTicketsComponent } from './shared/components/config-time-resolution-tickets/config-time-resolution-tickets.component';
 import { ConfigTicketsWithPriorityComponent } from './shared/components/config-tickets-with-priority/config-tickets-with-priority.component';
+import { DashboardDisplayerComponent } from './shared/components/dashboard-displayer/dashboard-displayer.component';
+import { DashboardCreatorComponent } from './shared/components/dashboard-creator/dashboard-creator.component';
 
 
 
@@ -69,6 +71,16 @@ children: [
   path: 'configuration',
   component: ConfigurationComponent
 },
+{
+  path: 'Dashboards',
+  component: DashboardDisplayerComponent
+},
+
+{
+  path: 'CreateDashboard',
+  component: DashboardCreatorComponent
+},
+
 
  
 ]}
