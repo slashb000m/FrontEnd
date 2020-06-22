@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {kpi} from 'src/app/classes/kpi';
 
+
 @Component({
   selector: 'app-kpi-displayer',
   templateUrl: './kpi-displayer.component.html',
@@ -19,6 +20,7 @@ export class KpiDisplayerComponent implements OnInit {
     {id:4,name:"rapport sur la proportion des tickets par rapport a leur priorité ",linkKpi:"http://localhost:4200/kpi/tickets_priority_by_version",linkConfig:"http://localhost:4200/config/tickets-with-priority" }
    ]
    collection: any[] = this.kpis;  
+  
   
   ngOnInit() 
   {

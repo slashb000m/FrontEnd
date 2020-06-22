@@ -1,1 +1,26 @@
-<p>dashboard-displayer works!</p>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div class="panel">
+
+    <div>
+      <h2 align="center">vos dashboards</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+     
+        <tbody>
+          <tr *ngFor="let dashboard of dashboards">
+            <td>{{dashboard.nom_dashboard}}</td>
+            
+            <td align="right">
+              <button style="background-color:#0ed3b8" class="btn btn-info" >Consulter</button>
+              &nbsp;
+              &nbsp;&nbsp;
+              <button  (click)="deleteDashboard(dashboard.id)" class="btn btn-warn">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -18,6 +18,9 @@ import { getConfigStatut } from './classes/getConfigStatut';
 import { getConfigModule } from './classes/getConfigModule';
 import { getConfigEpic } from './classes/getConfigEpic';
 import { getConfigVersion } from './classes/getConfigVersion';
+import { getDashboards } from './classes/getDashboards';
+import { Id } from './classes/id';
+
 
 @Injectable({
   providedIn: 'root'
@@ -164,6 +167,24 @@ getConfigVersion()
   return this._http.get<getConfigVersion[]>("http://localhost:8181/champsConfig/version");
 }
 
+
+// get Dashboards
+
+
+getDashboards()
+  
+{
+    return this._http.get<getDashboards[]>("http://localhost:8181/get/Dashboards")
+}
+
+
+// delete Dashboard
+
+
+public deleteDashboard(Id)
+{
+  return this._http.post("http://localhost:8181/delete/dashboard",Id,{responseType:'text' as 'json'});
+}
 
 
 }
