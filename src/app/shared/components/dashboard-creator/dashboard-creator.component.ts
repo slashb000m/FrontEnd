@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import{getDashboards} from 'src/app/classes/getDashboards'
+import { DataService } from 'src/app/data.service';
+import { DashboardNom } from 'src/app/classes/DashboardNom';
 
 @Component({
   selector: 'app-dashboard-creator',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardCreatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
+message:any;
+
 
   ngOnInit(): void {
   }
 
+dashboard: DashboardNom = new DashboardNom("");
+
+  getDashboard()
+{
+  console.log(this.dashboard)
+  let resp=this.dataService.createDashboard(this.dashboard);
+  resp.subscribe((data)=>this.message=data);
+}
 }

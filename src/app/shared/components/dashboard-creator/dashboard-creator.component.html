@@ -2,16 +2,18 @@
 <h1 align="center">Créer un dashboard</h1>
 <br><br><br><br><br>
 <h2>Saisir le nom du Dashboard </h2>
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Nom du dashboard</mat-label>
-      <input matInput>
+<form class="Dashboard-form">
+    <mat-form-field  class="example-full-width">
+      <mat-label >Nom du dashboard</mat-label>
+      <input  class="form-control" [(ngModel)]="dashboard.nom_dashboard" name="first "type="text" matInput >
     </mat-form-field>
     
+    
     <br><br><br><br><br>
+  </form>
 
 <div align='center'>
-    <button  mat-raised-button  style="color:black" style="background-color:#0ed3b8">Créer le dashboard</button>
+    <button  (click)="getDashboard()" mat-raised-button  style="background-color:#0ed3b8">Créer le dashboard</button>
 </div>
     
 

@@ -20,6 +20,7 @@ import { getConfigEpic } from './classes/getConfigEpic';
 import { getConfigVersion } from './classes/getConfigVersion';
 import { getDashboards } from './classes/getDashboards';
 import { Id } from './classes/id';
+import {DashboardNom} from './classes/DashboardNom';
 
 
 @Injectable({
@@ -185,6 +186,13 @@ public deleteDashboard(Id)
 {
   return this._http.post("http://localhost:8181/delete/dashboard",Id,{responseType:'text' as 'json'});
 }
+
+
+public createDashboard(DashboardNom)
+{
+  return this._http.post("http://localhost:8181/create/dashboard",DashboardNom,{responseType:'text' as 'json'});
+}
+
 
 
 }
