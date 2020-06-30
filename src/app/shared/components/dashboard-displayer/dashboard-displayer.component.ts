@@ -35,11 +35,16 @@ aaaa: Id=new Id(1);
     resp.subscribe((data)=>this.message=data);
     location.reload()
   }
-  
+}
 
+openDashboard(id:number)
+  {
+    this.aaaa.dashboard_id=id;
 
-
-  }
+    
+    let resp=this.dataService.consultDashboard(this.aaaa);
+    resp.subscribe((data)=>this.message=data);
+  } 
 
 
 

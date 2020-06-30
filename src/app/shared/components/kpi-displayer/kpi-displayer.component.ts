@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {kpi} from 'src/app/classes/kpi';
-
+import { DataService } from 'src/app/data.service';
+import { DashboardNom } from 'src/app/classes/DashboardNom';
 
 @Component({
   selector: 'app-kpi-displayer',
@@ -9,10 +10,9 @@ import {kpi} from 'src/app/classes/kpi';
 })
 export class KpiDisplayerComponent implements OnInit {
 
-  constructor() 
-  {
+  constructor(private dataService: DataService) { }
 
-  }
+
    kpis=[
     {id:1,name:"Liste des tickets selon configuration",linkKpi:"http://localhost:4200/kpi/closed_tickets",linkConfig:"http://localhost:4200/config/closed-tickets"},
     {id:2,name:"rapport sur proportion ticket closed/test failed ",linkKpi:"http://localhost:4200/kpi/porportion_closed_returned_tickets",linkConfig:"http://localhost:4200/config/closed-returned-tickets" },
@@ -21,10 +21,11 @@ export class KpiDisplayerComponent implements OnInit {
    ]
    collection: any[] = this.kpis;  
   
-  
+   dashboard:DashboardNom;
   ngOnInit() 
   {
-  
+    return this.dataService.getNomDashboard()
+    .subscribe(data => this.dashboard = data);
 
   }
 

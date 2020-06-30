@@ -24,5 +24,6 @@ dashboard: DashboardNom = new DashboardNom("");
   console.log(this.dashboard)
   let resp=this.dataService.createDashboard(this.dashboard);
   resp.subscribe((data)=>this.message=data);
+  alert("Le Dashboard a été crée");
 }
 }

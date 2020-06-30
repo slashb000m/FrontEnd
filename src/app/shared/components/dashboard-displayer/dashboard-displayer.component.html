@@ -14,7 +14,7 @@
             <td>{{dashboard.nom_dashboard}}</td>
             
             <td align="right">
-              <button (click)="deleteDashboard(dashboard.id)" style="background-color:#0ed3b8" class="btn btn-info" >Consulter</button>
+            <a href="http://localhost:4200/Kpis">  <button (click)="openDashboard(dashboard.id)" style="background-color:#0ed3b8" class="btn btn-info" >Consulter</button></a>
               &nbsp;
               &nbsp;&nbsp;
               <button  (click)="deleteDashboard(dashboard.id)" class="btn btn-warn">Supprimer</button>

@@ -193,6 +193,16 @@ public createDashboard(DashboardNom)
   return this._http.post("http://localhost:8181/create/dashboard",DashboardNom,{responseType:'text' as 'json'});
 }
 
+public consultDashboard(Id)
+{
+  return this._http.post("http://localhost:8181/consult/dashboard",Id,{responseType:'text' as 'json'});
+}
+
+
+getNomDashboard()
+{
+  return this._http.get<DashboardNom>("http://localhost:8181/get/nomDashboard");
+}
 
 
 }
